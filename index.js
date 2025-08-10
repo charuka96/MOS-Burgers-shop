@@ -134,13 +134,46 @@ function displayItemStore() {
                           item.code
                         }')">Delete</button>
                     </div> `;
-                    container.append(itemDiv);
-
+    container.append(itemDiv);
   });
 }
 
-function addNewItem(){
-console.log("cliked");
+function addNewItem() {
   document.getElementById("addItemModal").style.display = "block";
+}
+function saveNewItem(event) {
+  event.preventDefault();
+  const newItem = {
+    code: document.getElementById("newItemCode").value,
+    name: document.getElementById("newItemName").value,
+    category: document.getElementById("newItemCategory").value,
+    price: parseFloat(document.getElementById("newItemPrice").value),
+    quantity: parseInt(document.getElementById("newItemQuantity").value),
+    discount: parseInt(document.getElementById("newItemDiscount").value),
+    expiry: document.getElementById("newItemExpiry").value || "2025-12-31",
+  };
+  console.log(newItem);
+
+  if (foodItems.forEach((item) => item.code == newItem.code)) {
+    alert("Item code already exists!");
+    return;
+  } else {
+    foodItems.push(newItem);
+  }
+}
+function editItem(code) {
+  const item = foodItems.find(item=> item.code===code);
  
+  if (item) {
+    document.getElementById("newItemCode").value = item.code;
+    document.getElementById("newItemName").value = item.name;
+    document.getElementById("newItemCategory").value = item.category;
+    document.getElementById("newItemPrice").value = item.price;
+    document.getElementById("newItemQuantity").value = item.quantity;
+    document.getElementById("newItemDiscount").value = item.discount;
+    document.getElementById("newItemExpiry").value = item.expiry;
+    foodItems = foodItems.filter((item) => item.code !== code);
+    addNewItem();
+
+  }
 }
