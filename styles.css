@@ -1,26 +1,114 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 body {
-
-    font-family: Arial, Helvetica, sans-serif;
-    background: rgb(255, 248, 248);
-    min-height: 100vh;
-    color: #333;;   
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgb(255, 248, 248);
+  min-height: 100vh;
+  color: #333;
 }
 
-.sidebar{
-
-    margin: 0px;
-    padding: 0px;
-    width: 350px;
-    background-color: #f1f1f1;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
+.sidebar {
+  margin: 0px;
+  padding: 0px;
+  width: 350px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+.sidebar a.active {
+  background-color:#0199d5;
+  color: white;
+}
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
 }
 
+div.content {
+  margin-left: 350px;
+  padding: 20px 16px;
+  height: 1000px;
+  border-radius: 1px;
+  border-width: 5px;
+}
+.content-section.active {
+  display: block;
+ 
+}
 
+@media screen and(max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+.search-box{
+    position: relative;
+     margin-bottom: 20px;
+}
+.search-box input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 16px;
+}
+.search-box::before {
+    content: "🔍";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+}
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.btn-primary {
+    background: linear-gradient(135deg, #2a4ce0, #2b5ac0);
+    color: white;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(60, 111, 231, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
