@@ -162,8 +162,8 @@ function saveNewItem(event) {
   }
 }
 function editItem(code) {
-  const item = foodItems.find(item=> item.code===code);
- 
+  const item = foodItems.find((item) => item.code === code);
+
   if (item) {
     document.getElementById("newItemCode").value = item.code;
     document.getElementById("newItemName").value = item.name;
@@ -173,7 +173,6 @@ function editItem(code) {
     document.getElementById("newItemDiscount").value = item.discount;
     document.getElementById("newItemExpiry").value = item.expiry;
     foodItems = foodItems.filter((item) => item.code !== code);
-    addNewItem();
-
   }
+  addNewItem();
 }
