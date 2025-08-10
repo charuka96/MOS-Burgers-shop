@@ -138,3 +138,9 @@ function displayItemStore() {
 
   });
 }
+
+function addNewItem(){
+console.log("cliked");
+  document.getElementById("addItemModal").style.display = "block";
+ 
+}

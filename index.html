@@ -32,7 +32,7 @@
             />
           </div>
           <div style="margin-bottom: 20px">
-            <button class="btn btn-primary" onclick="showAddItemModal()">
+            <button class="btn btn-primary" onclick="addNewItem()">
               Add New Item
             </button>
             <button class="btn btn-primary" onclick="displayItemStore()">
@@ -47,6 +47,69 @@
       </div>
     </div>
 
-    <script src="index.js" ></script>
+    
+ <!-- Add Item Modal -->
+          <div id="addItemModal" class="modal">
+            <div class="modal-content">
+              <span
+                id="close-modal"
+                class="close"
+                onclick="document.getElementById('addItemModal').style.display='none'"
+                >&times;</span
+              >
+              <h2>Add New Item</h2>
+              <form onsubmit="addNewItem(event)">
+                <div class="form-group">
+                  <label>Item Code:</label>
+                  <input type="text" id="newItemCode" required />
+                </div>
+                <div class="form-group">
+                  <label>Item Name:</label>
+                  <input type="text" id="newItemName" required />
+                </div>
+                <div class="form-group">
+                  <label>Category:</label>
+                  <select id="newItemCategory" required>
+                    <option value="Burgers">Burgers</option>
+                    <option value="Submarines">Submarines</option>
+                    <option value="Fries">Fries</option>
+                    <option value="Pasta">Pasta</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Beverages">Beverages</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Price (LKR):</label>
+                  <input type="number" id="newItemPrice" step="0.01" required />
+                </div>
+                <div class="form-group">
+                  <label>Quantity:</label>
+                  <input type="number" id="newItemQuantity" required />
+                </div>
+                <div class="form-group">
+                  <label>Discount (%):</label>
+                  <input
+                    type="number"
+                    id="newItemDiscount"
+                    min="0"
+                    max="100"
+                    value="0"
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Expiration Date:</label>
+                  <input type="date" id="newItemExpiry" />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  onclick="document.getElementById('addItemModal').style.display='none'"
+                >
+                  Add Item
+                </button>
+              </form>
+            </div>
+          </div>
+    <script src="index.js"></script>
   </body>
 </html>
