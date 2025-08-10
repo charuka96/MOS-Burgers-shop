@@ -99,3 +99,42 @@ let foodItems = [
     expiry: "2025-06-30",
   },
 ];
+
+function displayItemStore() {
+  const container = document.getElementById("storeItems");
+  container.innerHTML = "";
+  foodItems.forEach((item) => {
+    const isExpired = new Date(item.expiry) < new Date();
+    const itemDiv = document.createElement("div");
+    itemDiv.className = `food-item ${isExpired ? "expired" : ""}`;
+
+    itemDiv.innerHTML = `
+     <h4>${item.name}</h4>
+     <p><strong>Code:</strong> ${item.code}</p>
+                    <p><strong>Category:</strong> ${item.category}</p>
+                    <p class="price">LKR ${item.price.toFixed(2)}</p>
+                    <p><strong>Quantity:</strong> ${item.quantity}</p>
+                    <p><strong>Expiry:</strong> ${item.expiry}</p>
+                     ${
+                       item.discount > 0
+                         ? `<span class="discount">${item.discount}% OFF</span>`
+                         : ""
+                     }
+                       ${
+                         isExpired
+                           ? '<span class="expired-tag">EXPIRED</span>'
+                           : ""
+                       }
+
+                         <div style="margin-top: 15px;">
+                        <button class="btn btn-primary" onclick="editItem('${
+                          item.code
+                        }')">Edit</button>
+                        <button class="btn btn-danger" onclick="deleteItem('${
+                          item.code
+                        }')">Delete</button>
+                    </div> `;
+                    container.append(itemDiv);
+
+  });
+}
