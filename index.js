@@ -1,4 +1,4 @@
-let foodItems = [
+const foodItems = [
   {
     code: "B1001",
     name: "Classic Burger (Large)",
@@ -100,7 +100,7 @@ let foodItems = [
   },
 ];
 
-function displayItemStore() {
+ function displayItemStore() {
   const container = document.getElementById("storeItems");
   container.innerHTML = "";
   foodItems.forEach((item) => {
@@ -152,18 +152,23 @@ function saveNewItem(event) {
     discount: parseInt(document.getElementById("newItemDiscount").value),
     expiry: document.getElementById("newItemExpiry").value || "2025-12-31",
   };
-  console.log(newItem);
 
+
+  console.log(newItem);
   if (foodItems.forEach((item) => item.code == newItem.code)) {
     alert("Item code already exists!");
     return;
   } else {
     foodItems.push(newItem);
-  }
+    console.log(foodItems);
+    displayItemStore();
+    
 }
+    
+  }
+
 function editItem(code) {
   const item = foodItems.find((item) => item.code === code);
-
   if (item) {
     document.getElementById("newItemCode").value = item.code;
     document.getElementById("newItemName").value = item.name;
@@ -173,6 +178,18 @@ function editItem(code) {
     document.getElementById("newItemDiscount").value = item.discount;
     document.getElementById("newItemExpiry").value = item.expiry;
     foodItems = foodItems.filter((item) => item.code !== code);
+
+      addNewItem();
   }
-  addNewItem();
+
 }
+
+
+
+
+
+//  function hide(){
+
+//  document.getElementById("storeItems").style.display="none";
+  
+//  }

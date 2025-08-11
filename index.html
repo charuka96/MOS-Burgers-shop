@@ -6,7 +6,7 @@
     <title>Document1</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body  onload="displayItemStore()">
     <div class="container">
       <!-- The sidebar -->
       <div class="sidebar">
@@ -35,9 +35,9 @@
             <button class="btn btn-primary" onclick="addNewItem()">
               Add New Item
             </button>
-            <button class="btn btn-primary" onclick="displayItemStore()">
+            <!-- <button class="btn btn-primary" onclick="hide()">
               View Item
-            </button>
+            </button> -->
             <button class="btn btn-secondary" onclick="checkExpiredItems()">
               Check Expired Items
             </button>
@@ -46,7 +46,6 @@
         </section>
       </div>
     </div>
-
 
  <!-- Add Item Modal -->
           <div id="addItemModal" class="modal">
@@ -104,6 +103,7 @@
                   type="submit"
                   class="btn btn-primary"
                   onclick="document.getElementById('addItemModal').style.display='none'"
+                  
                 >
                   Add Item
                 </button>
