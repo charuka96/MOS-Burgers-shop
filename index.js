@@ -182,7 +182,11 @@ function editItem(code) {
   }
 
 }
-
+function deleteItem(code){
+foodItems = foodItems.filter((item) => item.code !== code);
+displayItemStore();
+console.log('delete');
+}
 //  function hide(){
 
 //  document.getElementById("storeItems").style.display="none";
