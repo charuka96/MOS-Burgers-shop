@@ -1,4 +1,4 @@
-const foodItems = [
+let foodItems = [
   {
     code: "B1001",
     name: "Classic Burger (Large)",
@@ -100,7 +100,7 @@ const foodItems = [
   },
 ];
 
- function displayItemStore() {
+function displayItemStore() {
   const container = document.getElementById("storeItems");
   container.innerHTML = "";
   foodItems.forEach((item) => {
@@ -153,7 +153,6 @@ function saveNewItem(event) {
     expiry: document.getElementById("newItemExpiry").value || "2025-12-31",
   };
 
-
   console.log(newItem);
   if (foodItems.forEach((item) => item.code == newItem.code)) {
     alert("Item code already exists!");
@@ -162,34 +161,30 @@ function saveNewItem(event) {
     foodItems.push(newItem);
     console.log(foodItems);
     displayItemStore();
-    
-}
-    
   }
+}
 
 function editItem(code) {
   const item = foodItems.find((item) => item.code === code);
-  if (item) {
-    document.getElementById("newItemCode").value = item.code;
-    document.getElementById("newItemName").value = item.name;
-    document.getElementById("newItemCategory").value = item.category;
-    document.getElementById("newItemPrice").value = item.price;
-    document.getElementById("newItemQuantity").value = item.quantity;
-    document.getElementById("newItemDiscount").value = item.discount;
-    document.getElementById("newItemExpiry").value = item.expiry;
+  console.log(item);
+  document.getElementById("newItemCode").value = item.code;
+  document.getElementById("newItemName").value = item.name;
+  document.getElementById("newItemCategory").value = item.category;
+  document.getElementById("newItemPrice").value = item.price;
+  document.getElementById("newItemQuantity").value = item.quantity;
+  document.getElementById("newItemDiscount").value = item.discount;
+  document.getElementById("newItemExpiry").value = item.expiry;
+  try {
     foodItems = foodItems.filter((item) => item.code !== code);
-
-      addNewItem();
+    addNewItem();
+  } catch (e) {
+    console.log(e);
   }
 
 }
-
-
-
-
 
 //  function hide(){
 
 //  document.getElementById("storeItems").style.display="none";
-  
+
 //  }
