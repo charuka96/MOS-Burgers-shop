@@ -180,15 +180,32 @@ function editItem(code) {
   } catch (e) {
     console.log(e);
   }
-
 }
-function deleteItem(code){
-foodItems = foodItems.filter((item) => item.code !== code);
+function deleteItem(code) {
+  foodItems = foodItems.filter((item) => item.code !== code);
+  displayItemStore();
+  console.log("delete");
+}
+
+function filterStoreItems(event) {
+  //let val = document.getElementById("storeSearch").value.toUpperCase();
+  const val = event.target.value.toUpperCase();
+  console.log(val);
+  const item = foodItems.find((item) => item.code == val);
+
+  if (item) {
+    foodItems = foodItems.filter((item) => item.code == val);
+    displayItemStore();
+
+    if (item.code.length<1) {
+    displayItemStore();
+    }
+  } else {
+    //  alert("no Found Iteam");
+  }
+}
+
+ function checkExpiredItems(){
+foodItems = foodItems.filter((item) => new Date(item.expiry) < new Date());
 displayItemStore();
-console.log('delete');
-}
-//  function hide(){
-
-//  document.getElementById("storeItems").style.display="none";
-
-//  }
+ }

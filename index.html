@@ -24,20 +24,19 @@
         <section id="store" class="content-section active">
           <h2>Store Management</h2>
           <div class="search-box">
+            <label for="">Search Iteam</label>
             <input
-              type="text"
+              type="search"
               id="storeSearch"
               placeholder="Search items by name, code, or category..."
-              oninput="filterStoreItems()"
+              oninput="filterStoreItems(event)"
             />
           </div>
           <div style="margin-bottom: 20px">
             <button class="btn btn-primary" onclick="addNewItem()">
               Add New Item
             </button>
-            <!-- <button class="btn btn-primary" onclick="hide()">
-              View Item
-            </button> -->
+          
             <button class="btn btn-secondary" onclick="checkExpiredItems()">
               Check Expired Items
             </button>
