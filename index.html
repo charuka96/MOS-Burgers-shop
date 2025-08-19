@@ -35,7 +35,9 @@
         </ul>
       </div>
 
-<div class="main-content">
+
+<!-- main container -->
+ <div class="main-content">
             <div class="header">
                 <h2 id="section-title">Store Management</h2>
                 <p id="section-description">Manage your food items, prices, and inventory</p>
@@ -140,5 +142,110 @@
             </div>
         </div>
     </div>
+      <!-- add item model -->
+      <div id="item-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3 id="modal-title">Add New Item</h3>
+          <form id="item-form">
+            <div class="form-group">
+              <label class="form-label">Item Code:</label>
+              <input type="text" class="form-input" id="item-code" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Item Name:</label>
+              <input type="text" class="form-input" id="item-name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category:</label>
+              <select class="form-select" id="item-category" required>
+                <option value="">Select Category</option>
+                <option value="Burgers">Burgers</option>
+                <option value="Submarines">Submarines</option>
+                <option value="Fries">Fries</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Chicken">Chicken</option>
+                <option value="Beverages">Beverages</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Price (LKR):</label>
+              <input
+                type="number"
+                class="form-input"
+                id="item-price"
+                step="0.01"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Quantity:</label>
+              <input
+                type="number"
+                class="form-input"
+                id="item-quantity"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Discount (%):</label>
+              <input
+                type="number"
+                class="form-input"
+                id="item-discount"
+                min="0"
+                max="100"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Expiry Date:</label>
+              <input type="date" class="form-input" id="item-expiry" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save Item</button>
+          </form>
+        </div>
+      </div>
+
+    <!-- Add/Edit Customer Modal -->
+    <div id="customer-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3 id="customer-modal-title">Add New Customer</h3>
+        <form id="customer-form">
+          <div class="form-group">
+            <label class="form-label">Name:</label>
+            <input type="text" class="form-input" id="customer-name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone:</label>
+            <input
+              type="text"
+              class="form-input"
+              id="customer-phone-input"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email:</label>
+            <input type="email" class="form-input" id="customer-email" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Address:</label>
+            <textarea
+              class="form-input"
+              id="customer-address"
+              rows="3"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Customer</button>
+        </form>
+      </div>
+    </div>
+    <div id="notification" class="notification"></div>
+    <div class="main-content" id="main-content">
+      <h2>Welcome to MOS Burgers</h2>
+      <p>Select a section from the sidebar to manage your restaurant.</p>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>
