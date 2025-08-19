@@ -35,10 +35,110 @@
         </ul>
       </div>
 
+<div class="main-content">
+            <div class="header">
+                <h2 id="section-title">Store Management</h2>
+                <p id="section-description">Manage your food items, prices, and inventory</p>
+            </div>
 
+            <!-- Store Management Section -->
+            <div id="store-management" class="content-section active">
+                <div class="search-bar">
+                    <input type="text" class="search-input" id="search-items" placeholder="Search items by name, code, or category...">
+                    <button class="btn btn-primary" onclick="openAddItemModal()">Add New Item</button>
+                    <button class="btn btn-secondary" onclick="checkExpiredItems()">Check Expired Items</button>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-items">0</div>
+                        <div class="stat-label">Total Items</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="expired-items">0</div>
+                        <div class="stat-label">Expired Items</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="discounted-items">0</div>
+                        <div class="stat-label">Discounted Items</div>
+                    </div>
+                </div>
 
+                <div id="items-container" class="items-grid"></div>
+            </div>
 
-      
+            <!-- Order Management Section -->
+            <div id="order-management" class="content-section">
+                <div class="search-bar">
+                    <input type="text" class="search-input" id="search-menu" placeholder="Search menu items...">
+                    <select id="category-filter" class="form-select" style="width: auto;">
+                        <option value="">All Categories</option>
+                        <option value="Burgers">Burgers</option>
+                        <option value="Submarines">Submarines</option>
+                        <option value="Fries">Fries</option>
+                        <option value="Pasta">Pasta</option>
+                        <option value="Chicken">Chicken</option>
+                        <option value="Beverages">Beverages</option>
+                    </select>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Menu Items</h3>
+                        <div id="menu-items" class="items-grid"></div>
+                    </div>
+                    
+                    <div class="cart-section">
+                        <h3 style="margin-bottom: 20px;">Order Cart</h3>
+                        <div id="cart-items"></div>
+                        <div class="form-group" style="margin-top: 20px;">
+                            <label class="form-label">Customer Phone:</label>
+                            <input type="text" class="form-input" id="customer-phone" placeholder="Enter customer phone">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Discount (%):</label>
+                            <input type="number" class="form-input" id="order-discount" placeholder="0" min="0" max="100">
+                        </div>
+                        <div class="cart-total" id="cart-total">Total: LKR 0.00</div>
+                        <button class="btn btn-primary" onclick="processOrder()" style="width: 100%; margin-top: 15px;">Process Order</button>
+                        <button class="btn btn-secondary" onclick="clearCart()" style="width: 100%; margin-top: 10px;">Clear Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Management Section -->
+            <div id="customer-management" class="content-section">
+                <div class="search-bar">
+                    <input type="text" class="search-input" id="search-customers" placeholder="Search customers...">
+                    <button class="btn btn-primary" onclick="openAddCustomerModal()">Add New Customer</button>
+                </div>
+                
+                <div id="customers-container" class="items-grid"></div>
+            </div>
+
+            <!-- Reports Section -->
+            <div id="reports" class="content-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-orders">0</div>
+                        <div class="stat-label">Total Orders</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-revenue">0</div>
+                        <div class="stat-label">Total Revenue (LKR)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-customers">0</div>
+                        <div class="stat-label">Total Customers</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <h3>Recent Orders</h3>
+                    <div id="recent-orders"></div>
+                </div>
+            </div>
+        </div>
     </div>
   </body>
 </html>
